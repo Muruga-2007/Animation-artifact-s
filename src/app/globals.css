@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --foreground-rgb: 237, 237, 237;
+    --background-start-rgb: 5, 5, 5;
+    --background-end-rgb: 10, 10, 10;
+  }
+
+  body {
+    @apply bg-background text-text-primary antialiased selection:bg-primary/20 selection:text-white;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  }
+}
+
+.glass-card {
+  @apply bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm;
+}
+
+.glass-card:hover {
+  @apply bg-white/[0.04] border-white/[0.1] shadow-[0_0_30px_-5px_var(--tw-shadow-color)] shadow-primary/10;
+}
