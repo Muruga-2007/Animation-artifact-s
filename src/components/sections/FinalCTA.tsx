@@ -13,9 +13,9 @@ const FinalCTA = () => {
                 <motion.span
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    className="text-primary font-medium tracking-widest uppercase text-sm mb-6 block"
+                    className="text-primary font-mono text-sm mb-6 block"
                 >
-                    Start Building
+                    Chapter 06 · The Future
                 </motion.span>
 
                 <motion.h2
@@ -43,8 +43,11 @@ const FinalCTA = () => {
                     transition={{ delay: 0.3 }}
                     className="flex flex-col sm:flex-row gap-4 justify-center"
                 >
-                    <Link href="/contact" className="px-10 py-5 bg-primary text-black text-lg font-bold rounded-full hover:shadow-[0_0_30px_rgba(22,242,179,0.4)] transition-all flex items-center justify-center gap-2">
-                        Book a Strategy Call <ArrowRight className="w-5 h-5" />
+                    <Link href="/contact" className="group px-10 py-5 bg-primary text-black text-lg font-bold rounded-full hover:shadow-[0_0_30px_rgba(22,242,179,0.4)] transition-all flex items-center justify-center gap-2 relative overflow-hidden">
+                        <span className="relative z-10 flex items-center gap-2">
+                            Book a Strategy Call <ArrowRight className="w-5 h-5 transition-transform group-hover:rotate-45" />
+                        </span>
+                        <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </Link>
                     <Link href="mailto:hello@azentrix.com" className="px-10 py-5 bg-transparent border border-white/10 text-white text-lg font-bold rounded-full hover:bg-white/5 transition-all">
                         Email Our Team

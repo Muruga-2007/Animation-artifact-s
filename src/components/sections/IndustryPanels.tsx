@@ -46,7 +46,8 @@ const IndustryPanels = () => {
                     {industries.map((ind, i) => (
                         <div key={i} className={`w-screen h-full flex items-center justify-center ${ind.color} border-r border-white/5 relative`}>
                             <div className="max-w-4xl px-6 text-center">
-                                <span className="text-primary font-mono text-sm mb-4 block">0{i + 1} / 04</span>
+                                <span className="text-primary font-mono text-sm mb-4 block">Chapter 04 · The Impact</span>
+                                <span className="text-white/20 font-mono text-sm mb-4 block">0{i + 1} / 04</span>
                                 <h3 className="text-5xl md:text-8xl font-display font-bold text-white mb-8">
                                     {ind.name}
                                 </h3>

@@ -1,20 +1,40 @@
 "use client";
 
 import { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sphere } from "@react-three/drei";
 
-function MovingOrb() {
+const MovingOrb = () => {
+    const meshRef = useRef<any>(null);
+    const { mouse } = useThree();
+
+    useFrame((state) => {
+        const time = state.clock.getElapsedTime();
+        if (meshRef.current) {
+            // Subtle rotation
+            meshRef.current.rotation.x = time * 0.2;
+            meshRef.current.rotation.y = time * 0.3;
+
+            // Mouse Parallax
+            // mouse.x/y are normalized (-1 to 1)
+            const targetX = mouse.x * 0.5;
+            const targetY = mouse.y * 0.5;
+
+            meshRef.current.position.x += (targetX - meshRef.current.position.x) * 0.1;
+            meshRef.current.position.y += (targetY - meshRef.current.position.y) * 0.1;
+        }
+    });
+
     return (
-        <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-            <Sphere args={[1, 100, 200]} scale={2.4}>
+        <Float speed={2} rotationIntensity={1} floatIntensity={0.5}>
+            <Sphere ref={meshRef} args={[1, 100, 200]} scale={2.2}>
                 <MeshDistortMaterial
-                    color="#1d0d33" // Deep violet base
+                    color="#1d0d33"
                     attach="material"
-                    distort={0.4}
-                    speed={1.5}
-                    roughness={0}
-                    metalness={0.9} // Metallic look
+                    distort={0.5}
+                    speed={2}
+                    roughness={0.2}
+                    metalness={0.9}
                 />
             </Sphere>
             <ambientLight intensity={0.5} />

@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import Header from "@/components/layout/Header";
+import { AdaptiveMotion } from "@/components/layout/AdaptiveMotion";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
@@ -20,10 +21,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-background text-text-primary overflow-x-hidden selection:bg-primary/20 selection:text-white`}>
-                <SmoothScroll>
-                    <Header />
-                    {children}
-                </SmoothScroll>
+                <AdaptiveMotion>
+                    <SmoothScroll>
+                        <Header />
+                        {children}
+                    </SmoothScroll>
+                </AdaptiveMotion>
             </body>
         </html>
     );

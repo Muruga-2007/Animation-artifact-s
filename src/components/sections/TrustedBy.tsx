@@ -13,17 +13,21 @@ const TrustedBy = () => {
                 <span className="text-sm font-medium text-text-muted uppercase tracking-widest">Trusted by teams who move fast</span>
             </div>
 
-            <div className="relative flex overflow-x-hidden">
-                <div className="animate-marquee whitespace-nowrap py-4 flex gap-12 items-center">
-                    {[...logos, ...logos, ...logos].map((logo, i) => (
-                        <span key={i} className="text-2xl font-display font-bold text-white/20 uppercase mx-4">
+            <div className="relative flex overflow-x-hidden mask-linear-fade">
+                <div className="flex gap-12 animate-marquee whitespace-nowrap py-4">
+                    {[...logos, ...logos].map((logo, i) => (
+                        <span key={i} className="text-2xl font-display font-bold text-white/20 uppercase mx-4 hover:text-primary transition-colors duration-300 cursor-default">
                             {logo}
                         </span>
                     ))}
                 </div>
 
-                <div className="absolute top-0 animate-marquee2 whitespace-nowrap py-4 flex gap-12 items-center hidden">
-                    {/* Duplicate for seamless loop if needed, but Tailwind 'animate-marquee' usually handles single strip translation */}
+                <div className="flex gap-12 animate-marquee whitespace-nowrap py-4 absolute top-0 left-0" aria-hidden="true">
+                    {[...logos, ...logos].map((logo, i) => (
+                        <span key={i} className="text-2xl font-display font-bold text-white/20 uppercase mx-4 hover:text-primary transition-colors duration-300 cursor-default">
+                            {logo}
+                        </span>
+                    ))}
                 </div>
             </div>
         </section>

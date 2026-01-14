@@ -27,10 +27,19 @@ const Header = () => {
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-text-muted">
-                    <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-                    <Link href="/cases" className="hover:text-white transition-colors">Case Studies</Link>
-                    <Link href="/about" className="hover:text-white transition-colors">About</Link>
-                    <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+                    {[
+                        { name: "Services", path: "/services" },
+                        { name: "Case Studies", path: "/cases" },
+                        { name: "About", path: "/about" },
+                        { name: "Contact", path: "/contact" }
+                    ].map((item) => (
+                        <Link key={item.name} href={item.path} className="relative group overflow-hidden">
+                            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">{item.name}</span>
+                            <span
+                                className="absolute bottom-0 left-0 w-full h-[1px] bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"
+                            />
+                        </Link>
+                    ))}
                 </nav>
 
                 <div className="flex items-center gap-4">

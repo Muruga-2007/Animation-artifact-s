@@ -47,22 +47,27 @@ const Process = () => {
     return (
         <section ref={container} className="py-32 relative overflow-hidden">
             <div className="max-w-5xl mx-auto px-6 relative">
-                <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-px bg-white/10 transform md:-translate-x-1/2" />
-                <div ref={lineRef} className="absolute left-[27px] md:left-1/2 top-0 w-px bg-primary transform md:-translate-x-1/2 h-0" />
+                <div className="mb-16 text-center">
+                    <span className="text-primary font-mono text-sm mb-4 block">Chapter 05 · The Method</span>
+                    <h2 className="text-4xl font-display font-bold text-white">From Chaos to Clarity</h2>
+                </div>
+
+                <div className="absolute left-[27px] md:left-1/2 top-40 bottom-0 w-px bg-white/10 transform md:-translate-x-1/2" />
+                <div ref={lineRef} className="absolute left-[27px] md:left-1/2 top-40 w-px bg-primary transform md:-translate-x-1/2 h-0" />
 
                 <div className="space-y-24">
                     {steps.map((step, i) => (
                         <div key={i} className={`flex flex-col md:flex-row items-center gap-12 ${i % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
                             <div className="flex-1 w-full process-card">
                                 <div className={`bg-card p-8 rounded-2xl border border-white/5 relative hover:border-primary/30 transition-colors ${i % 2 === 0 ? "md:text-left" : "md:text-right"}`}>
-                                    <span className="text-4xl font-display font-bold text-white/5 absolute -top-6 left-6">{step.num}</span>
+                                    <span className="text-6xl font-display font-bold text-white/5 absolute -top-8 left-6 pointer-events-none">{step.num}</span>
                                     <h3 className="text-2xl font-bold text-white mb-4 relative z-10">{step.title}</h3>
                                     <p className="text-text-muted relative z-10">{step.desc}</p>
                                 </div>
                             </div>
 
-                            <div className="relative z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-background border border-primary/50 shadow-[0_0_20px_rgba(22,242,179,0.2)]">
-                                <div className="w-3 h-3 bg-primary rounded-full" />
+                            <div className="relative z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-background border border-primary/50 shadow-[0_0_20px_rgba(22,242,179,0.2)] group">
+                                <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300" />
                             </div>
                             <div className="flex-1 hidden md:block" />
                         </div>
